@@ -28,6 +28,7 @@ h2 {
 
 #aboutme, #skills {
     background-color: var(--cust-main);
+    color: var(--cust-light);
 }
 
 #projects, footer{
@@ -48,7 +49,7 @@ section {
     justify-content: center;
 }
 
-#projects > div {
+#projects > div, #skills > div {
     display: flex;
 
     justify-content:center;
@@ -58,6 +59,12 @@ section {
     flex-flow: row wrap;
 
     margin: 0 6vw;
+}
+
+
+
+figcaption {
+    color: var(--cust-dark);
 }
 
 #projects > div > div {
@@ -91,5 +98,24 @@ section {
 #projects > div > div:hover > p:nth-child(2) {
     color: var(--cust-light);
     background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/images/portrait.jpg');
+}
 
+#skills > div > figure > img {
+    width: 100px;
+    margin: 16px;
+}
+
+
+#skills > div > figure {
+    min-width: 0;
+    max-width: 325px;
+    width: 325px;
+    border: 1px solid var(--cust-border);
+    border-radius: 1rem;
+    margin: 0;
+    background-color: var(--cust-light);
+    text-align: center;
+
+    padding: 16px;
+    line-height: 1.5rem;
 }
