@@ -4,6 +4,12 @@
     }
 } */
 
+:root {
+    --cust-light: #F2F2F2;
+    --cust-main: #386481;
+    --cust-dark: #303030;
+    --cust-border: #D2D2D2;
+}
 
 * {
     font-family: 'Verdana', 'Arial', 'Helvetica', 'Times New Roman';
@@ -21,11 +27,12 @@ h2 {
 }
 
 #aboutme, #skills {
-    background-color: lightblue
+    background-color: var(--cust-main);
 }
 
 #projects, footer{
-    background-color: lightpink;
+    /* background-color: lightpink; */
+    background-color: var(--cust-light);
 }
 
 body {
@@ -36,7 +43,12 @@ section {
     padding: 4rem 0;
 }
 
-div {
+#aboutme > div {
+    display: flex;
+    justify-content: center;
+}
+
+#projects > div {
     display: flex;
 
     justify-content:center;
@@ -48,8 +60,36 @@ div {
     margin: 0 6vw;
 }
 
-.item {
+#projects > div > div {
     min-width: 0;
     max-width: 325px;
-    flex: 0 1 325px;
+    border: 1px solid var(--cust-border);
+    border-radius: 1rem;
+
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#projects > div > div > p:nth-child(1) {
+    background-color: var(--cust-light);
+
+    border-radius: 1rem 1rem 0 0;
+    padding: 10px;
+    margin: 0;
+}
+
+#projects > div > div > p:nth-child(2) {
+
+    border-radius: 0 0 1rem 1rem;
+    margin: 0;
+    padding: 10px;
+    color: transparent;
+    background-image: url('/images/portrait.jpg');
+    flex-grow: 1;
+}
+
+#projects > div > div:hover > p:nth-child(2) {
+    color: var(--cust-light);
+    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url('/images/portrait.jpg');
+
 }
