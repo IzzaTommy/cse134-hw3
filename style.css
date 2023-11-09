@@ -1,37 +1,67 @@
 :root {
-    --cust-light: #F2F2F2;
-    --cust-main: #386481;
-    --cust-dark: #303030;
-    --cust-border: #D2D2D2;
-    --cust-mask: rgba(0,0,0,.8);
+    --cust-light-color: #F2F2F2;
+    --cust-main-color: color(display-p3 0.26043 0.38786 0.49537);
+    --cust-dark-color: #303030;
+    --cust-border-color: #D2D2D2;
+    --cust-mask-color: rgba(0, 0, 0, 0.8);
+    --cust-border-radius: 1rem;
+    --cust-border: 1px solid var(--cust-border-color, lightgray);
+    --cust-section-padding: 4rem 0;
+    --cust-col-gap: 4dvw;
+    --cust-row-gap: calc(2dvh + 1dvw);
+    --cust-flex-margin: 0 6dvw;
+}
+
+@font-face {
+    font-family: 'Anonymous Pro';
+    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Anonymous Pro';
+    font-weight: bold;
+    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Anonymous Pro';
+    font-style: italic;
+    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'Anonymous Pro';
+    font-weight: bold;
+    font-style: italic;
+    src: url('/assets/fonts/Anonymous_Pro/AnonymousPro-BoldItalic.ttf');
 }
 
 /* NAV BAR */
 @media screen and (width < 600px) {
     nav label {
         display: block;
-        border: 1px solid var(--cust-border);
+        border: var(--cust-border);
         border-radius: 0.5rem;
         margin-left: auto;
     }
 
     nav img {
-        margin: 5px;
         display: block;
+        margin: 5px;
     }
 
     nav input:checked ~ ul {
         display: block;
     }
-    
+
     nav input:checked ~ label {
-        background-color: var(--cust-border);
+        background-color: var(--cust-border-color, lightgray);
     }
 
     nav ul {
         display: none;
-        background-color: var(--cust-light);
         width: 100%;
+        background-color: var(--cust-light-color, white);
         text-align: center;
         padding: 0;
         margin-bottom: 3rem;
@@ -40,7 +70,7 @@
     li {
         list-style-type: none;
         display: list-item;
-        padding:2vh 0;
+        padding: 2dvh 0;
     }
 }
 
@@ -51,44 +81,58 @@
 
     li {
         display: inline-block;
-        padding: 0.5rem 2.5vw;
+        padding: 0.5rem 2.5dvw;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
 nav {
-    background-color: var(--cust-light);
-    border-bottom: 0.25rem solid var(--cust-dark);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     position: fixed;
     width: 100%;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    background-color: var(--cust-light-color, white);
+    border-bottom: 0.25rem solid var(--cust-dark-color, black);
 }
 
 nav ul {
-    margin: 0;
-    margin-left: auto;
-
+    margin: 0 0 0 auto;
 }
 
-nav a {
-    text-decoration: none;
-    color: var(--cust-dark);
+nav ul a {
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: transparent;
+    color: var(--cust-dark-color, black);
+    transition: text-decoration-color 0.25s ease-in-out;
 }
 
-nav p {
-    margin: 0;
-    padding: 0.85rem;
+nav > a {
     line-height: 1rem;
+    text-decoration: none;
+    color: var(--cust-dark-color, black);
+    padding: 0.85rem;
+    margin: 0;
 }
 
 nav input {
     display: none;
 }
 
-nav a:hover {
-    text-decoration: underline;
-    text-underline-position: under;
+nav ul a:hover {
+    text-decoration-color: var(--cust-dark-color, black);
 }
 
 /* GENERAL */
@@ -102,45 +146,43 @@ body {
 }
 
 h2 {
+    font-size: calc(1.5rem + 3dvw);
+    font-family: 'Anonymous Pro', 'Monaco', 'Lucida Console', 'Times New Roman';
     text-align: center;
-    font-size: calc(1.5rem + 3vw);
-    font-family: 'Monaco', 'Lucida Console', 'Times New Roman';
     margin: 0 0 3rem 0;
 }
 
 h3 {
-    margin: 0;
     font-weight: normal;
+    margin: 0;
 }
 
 #aboutme, #skills {
-    background-color: var(--cust-main);
-    color: var(--cust-light);
+    background-color: var(--cust-main-color, cornflowerblue);
+    color: var(--cust-light-color, white);
 }
 
 #projects, #resume {
-    background-color: var(--cust-light);
-    color: var(--cust-dark);
+    background-color: var(--cust-light-color, white);
+    color: var(--cust-dark-color, black);
 }
 
 section {
-    padding: 4rem 0;
+    padding: var(--cust-section-padding);
 }
 
 section > div {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
-
-    column-gap: 4vw;
-    row-gap: calc(2vh + 1vw);
-
-    margin: 0 6vw;
+    column-gap: var(--cust-col-gap);
+    row-gap: var(--cust-row-gap);
+    animation: fadeIn 1s;
+    margin: var(--cust-flex-margin);
 }
 
 /* ABOUTME SECTION */
-#aboutme div
-{
+#aboutme div {
     align-items: center;
 }
 
@@ -149,17 +191,19 @@ section > div {
 }
 
 #aboutme img {
-    border-radius: 50%;
     width: calc(100% - 0.8rem);
-    border: 0.4rem solid var(--cust-light);
+    object-position: center center;
+    object-fit: cover;
+    border: 0.4rem solid var(--cust-light-color, white);
+    border-radius: 50%;
 }
 
 #aboutme p {
     width: 600px;
-    border: 1px solid var(--cust-border);
-    background-color: var(--cust-light);
-    border-radius: 1rem;
-    color: var(--cust-dark);
+    border: var(--cust-border);
+    background-color: var(--cust-light-color, white);
+    border-radius: var(--cust-border-radius);
+    color: var(--cust-dark-color, black);
     margin: 0;
     padding: 16px;
     line-height: 2.2rem;
@@ -168,24 +212,22 @@ section > div {
 
 /* PROJECTS SECTION */
 #projects > div > div {
-    max-width: 325px;
-    border: 1px solid var(--cust-border);
-    border-radius: 1rem;
-
     display: flex;
     flex-flow: column nowrap;
+    max-width: 325px;
+    border: var(--cust-border);
+    border-radius: var(--cust-border-radius);
 }
 
 #projects h3 {
+    background-color: var(--cust-light-color, white);
     font-size: 1rem;
     padding: 12px;
-
-    background-color: var(--cust-light);
-    border-radius: 1rem 1rem 0 0;
+    border-radius: var(--cust-border-radius) var(--cust-border-radius) 0 0;
 }
 
 #projects p {
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 0 0 var(--cust-border-radius) var(--cust-border-radius);
     margin: 0;
     padding: 10px;
     color: transparent;
@@ -200,8 +242,8 @@ section > div {
 }
 
 #proj-1:hover p {
-    color: var(--cust-light);
-    background-image: linear-gradient(var(--cust-mask), var(--cust-mask)), url('/assets/previews/CSE_134B_Website_Preview.webp');
+    color: var(--cust-light-color, white);
+    background-image: linear-gradient(var(--cust-mask-color, black), var(--cust-mask-color, black)), url('/assets/previews/CSE_134B_Website_Preview.webp');
 }
 
 #proj-2 p {
@@ -211,8 +253,8 @@ section > div {
 }
 
 #proj-2:hover p {
-    color: var(--cust-light);
-    background-image: linear-gradient(var(--cust-mask), var(--cust-mask)), url('/assets/previews/CSE_135_Website_Preview.webp');
+    color: var(--cust-light-color, white);
+    background-image: linear-gradient(var(--cust-mask-color, black), var(--cust-mask-color, black)), url('/assets/previews/CSE_135_Website_Preview.webp');
 }
 
 #proj-3 p {
@@ -222,37 +264,37 @@ section > div {
 }
 
 #proj-3:hover p {
-    color: var(--cust-light);
-    background-image: linear-gradient(var(--cust-mask), var(--cust-mask)), url('/assets/previews/RoommateHub_Preview.webp');
+    color: var(--cust-light-color, white);
+    background-image: linear-gradient(var(--cust-mask-color, black), var(--cust-mask-color, black)), url('/assets/previews/RoommateHub_Preview.webp');
 }
 
 #proj-4 p {
-    background-color: yellowgreen;
+    background-color: color-mix(in srgb, #9acd32 60%, white);
 }
 
 #proj-4:hover p {
-    color: var(--cust-light);
-    background-color: var(--cust-mask);
+    color: var(--cust-light-color, white);
+    background-color: var(--cust-mask-color, black);
 }
 
 #proj-5 p {
-    background-color: salmon;
+    background-color: color-mix(in srgb, #fa8072 60%, white);
 }
 
 #proj-5:hover p {
-    color: var(--cust-light);
-    background-color: var(--cust-mask);
+    color: var(--cust-light-color, white);
+    background-color: var(--cust-mask-color, black);
 }
 
 /* SKILLS SECTION */
 #skills figure {
     width: 325px;
-    border: 1px solid var(--cust-border);
-    border-radius: 1rem;
-    margin: 0;
-    background-color: var(--cust-light);
+    border: var(--cust-border);
+    border-radius: var(--cust-border-radius);
+    background-color: var(--cust-light-color, white);
     text-align: center;
-    color: var(--cust-dark);
+    color: var(--cust-dark-color, black);
+    margin: 0;
 }
 
 #skills img {
@@ -265,20 +307,44 @@ section > div {
 }
 
 #skills figcaption {
-    margin: 16px;
     line-height: 1.5rem;
+    margin: 16px;
+}
+
+/* EXAMPLE RESUME SECTION */
+#resume picture {
+    width: 400px;
+}
+
+#resume img {
+    width: 100%;
+    border: var(--cust-border);
+}
+
+#resume a {
+    align-self: center;
+    text-decoration: none;
+    color: var(--cust-dark-color, black);
+    border: var(--cust-border);
+    border-radius: var(--cust-border-radius);
+    padding: 10px;
+}
+
+#resume a:hover {
+    background-color: var(--cust-border-color, lightgray);
 }
 
 footer {
-    padding: 2rem 0;
     text-align: center;
-    color: var(--cust-dark);
+    color: var(--cust-dark-color, black);
+    padding: 2rem 0;
 }
 
-footer p {
+p:has(+ a) {
+    color: var(--cust-dark-color, black);
     margin: 0 0 1rem;
 }
 
 footer a {
-    color: var(--cust-dark);
+    color: var(--cust-dark-color, black);
 }
