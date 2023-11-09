@@ -7,19 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thomas Joel's CSE134B Site</title>
 
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
         <header>
-
             <nav>
+                <p>Thomas J.</p>
+                <input type="checkbox" id="menu-btn">
+                <label for="menu-btn">
+                    <picture>
+                        <source srcset="/assets/icons/hamburger_menu.svg">
+                        <img src="/assets/icons/hamburger_menu.png" alt="Icon for the navigation bar hamburger menu.">
+                    </picture>
+                </label>
+                
                 <ul>
                     <li><a href="#aboutme">About Me</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#resume">Resume</a></li>
                 </ul>
             </nav>
         </header>
@@ -30,11 +38,11 @@
 
             <div>
                 <picture>
-                    <source srcset="/images/TJ_Cropped.webp">
-                    <img src="/images/TJ_Cropped.jpg" alt="Portrait of Thomas Joel">
+                    <source srcset="/assets/previews/TJ_Cropped.jpg">
+                    <img src="/assets/previews/TJ_Cropped.webp" alt="Portrait of Thomas Joel">
                 </picture>
     
-                <p>Hi, I'm Thomas<br>I'm will be graduating from <strong>UCSD</strong> in 2024 with a degree in computer science.<br>I've developed an interest in web development technologies. In particular, I'm interested in creating websites that are accessible to a user's <em>personal</em> and <em>technological</em> needs.</p>
+                <p>Hello, I'm Thomas.<br><br>I am currently pursuing a degree in computer science, and I will be graduating from UCSD in 2024.<br><br>Since taking web development courses, I've grown interested in learning the front-end tech stack. In particular, I like to focus on employing web designs that are mindful of the user's needs and available resources to deliver the best experience to them.</p>
             </div>
         </section>
 
@@ -42,19 +50,29 @@
             <h2>Projects</h2>
 
             <div>
-                <div>
-                    <p>CSE135 Website</p>
-                    <p>CSS<br>A website implementing a <b>REST API</b> for <i>collection</i> of user activity and data.</p>
+                <div id="proj-1">
+                    <h3>CSE134B Website</h3>
+                    <p><b>HTML, CSS</b><br>A portfolio website showcasing the extensive capability of the basic front-end tech stack.</p>
                 </div>
     
-                <div>
-                    <p>RoommateHub</p>
-                    <p>A <b>web</b> application for <i>organizing</i> bills and responsibilities between living-mates.</p>
+                <div id="proj-2">
+                    <h3>CSE135 Website</h3>
+                    <p><b>HTML, CSS, JavaScript</b><br>A website implementing a REST API for responsible collection and analysis of user activity and data.</p>
                 </div>
 
-                <div>
-                    <p>RoommateHub</p>
-                    <p>A <b>web</b> application for <i>organizing</i> bills and responsibilities between living-mates.</p>
+                <div id="proj-3">
+                    <h3>RoommateHub</h3>
+                    <p><b>HTML, CSS, JavaScript</b><br>A web application for organizing bills and responsibilities between living-mates.</p>
+                </div>
+
+                <div id="proj-4">
+                    <h3>Example Project</h3>
+                    <p><b>Tech1, Tech2</b><br>An example project to fill space in this flexbox.</p>
+                </div>
+
+                <div id="proj-5">
+                    <h3>Example Project</h3>
+                    <p><b>Tech1, Tech2</b><br>An example project to fill space in this flexbox.</p>
                 </div>
             </div>
         </section>
@@ -65,83 +83,50 @@
 
             <div>
                 <figure>
-                    <img src="/assets/c-plain.svg" alt="">
-                    <figcaption>C<br>I have 2 years of experience using C, from implementing data structures to OS functions such as synchronization, scheduling, and threading.</figcaption>
+                    <picture>
+                        <source media="(max-width: 1000px)" srcset="/assets/icons/c-plain.svg">
+                        <img src="/assets/icons/c-plain.png" alt="Logo of the programming language C.">
+                    </picture>
+                    <h3>C</h3>
+                    <figcaption>I have 2 years of experience using C, from implementing data structures to OS functions such as synchronization, scheduling, and threading.</figcaption>
                 </figure>
 
                 <figure>
-                    <img src="/assets/java-plain.svg" alt="">
-                    <figcaption>Java<br>I have 3 years of experience using Java, applying knowledge of object-oriented design, polymorphism, data structures implementation.</figcaption>
+                    <picture>
+                        <source media="(max-width: 1000px)" srcset="/assets/icons/java-plain.svg">
+                        <img src="/assets/icons/java-plain.png" alt="Logo of the programming language Java.">
+                    </picture>
+                    <h3>Java</h3>
+                    <figcaption>I have 3 years of experience using Java, applying knowledge of object-oriented design, polymorphism, data structures implementation.</figcaption>
                 </figure>
 
                 <figure>
-                    <img src="/assets/python-plain.svg" alt="">
-                    <figcaption>Python<br>I have learned Python on my own time, developing web-scraping tools and functional GUI's for my personal projects.</figcaption>
+                    <picture>
+                        <source media="(max-width: 1000px)" srcset="/assets/icons/python-plain.svg">
+                        <img src="/assets/icons/python-plain.png" alt="Logo of the programming language Python.">
+                    </picture>
+                    <h3>Python</h3>
+                    <figcaption>I have learned Python on my own time, developing web-scraping tools and working with pandas for data analytics.</figcaption>
                 </figure>
 
                 <figure>
-                    <img src="/assets/git-plain.svg" alt="">
-                    <figcaption>Git<br>I have multiple years of experience using Git, particularly through GitHub, for source control and documentation within teams.</figcaption>
+                    <picture>
+                        <source media="(max-width: 1000px)" srcset="/assets/icons/git-plain.svg">
+                        <img src="/assets/icons/git-plain.png" alt="Logo of the source control tool Git.">
+                    </picture>
+                    <h3>Git</h3>
+                    <figcaption>I have multiple years of experience using Git, particularly through GitHub, for source control and documentation within teams.</figcaption>
                 </figure>
             </div>
-
         </section>
 
-
-        <section id="contact">
-            <h2>Contact</h2>
-
-            <form action="/" method="post">
-                <label for="first-name">First Name</label><br>
-                <input type="text" id="first-name" name="first-name"><br>
-
-                <label for="last-name">Last Name</label><br>
-                <input type="text" id="last-name" name="last-name"><br>
-
-                <label for="country-choice">Country</label><br>
-                <input id="country-choice" name="country-choice" list="countries"><br>
-
-                <datalist id="countries">
-                    <option value="USA"></option>
-                    <option value="Canada"></option>
-                    <option value="Japan"></option>
-                </datalist>
-
-                <label for="occupation">Occupation</label><br>
-                <select id="occupation" name="occupation">
-                    <option value="">--Please select an option--</option>
-                    <optgroup label="Education">
-                        <option value="student">Student</option>
-                        <option value="teacher">Teacher</option>
-                    </optgroup>
-                    <optgroup label="Business">
-                        <option value="employer">Employer</option>
-                    </optgroup>
-                    <optgroup label="Other">
-                        <option value="other">Other</option>
-                    </optgroup>
-                </select>
-
-                <fieldset>
-                    <legend>Inquiry</legend>
-                    <input type="radio" id="business" name="inquiry">
-                    <label for="business">Business</label>
-                    <input type="radio" id="other" name="inquiry">
-                    <label for="other">Other</label>
-                </fieldset>
-
-                <label for="subject">Subject</label><br>
-                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea><br>
-
-                <input type="submit" value="Submit">
-            </form>
+        <section id="resume">
+            <h2>Resume</h2>
         </section>
-
-
 
         <footer>
-            <p>Author - Thomas Joel</p>
-            <a href="mailto:tjoel@ucsd.edu">tjoel@ucsd.edu</a>
+            <p>Page authored by Thomas Joel</p>
+            <a href="mailto: tjoel@ucsd.edu">tjoel@ucsd.edu</a>
         </footer>
     </main>
 </body>
